@@ -1,0 +1,12 @@
+#Docker compose file that sets up a web page application in python, the webpage is a simple blog that uses post requests to make submissions, all submissions are visible no matter what gets posted. The button that sends the post request will have weak security which will allow website wide defacement. To restore the page simply redeploy this docker compose file.
+
+version: '3.8'
+
+services:
+  web:
+    container_name: simple-blog
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
